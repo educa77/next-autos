@@ -1,0 +1,168 @@
+.img-main {
+  transform: scaleX(-1);
+  filter: FlipH;
+}
+
+@mixin font-ego {
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+  font-family: "Montserrat";
+}
+
+.model-title {
+  font-size: 20px;
+  font-weight: 600;
+  @include font-ego;
+  line-height: 1.35;
+  letter-spacing: normal;
+  margin-bottom: 8px;
+}
+
+.main-title {
+  font-size: 50px;
+  font-weight: 600;
+  @include font-ego;
+  line-height: 1.14;
+  letter-spacing: -1px;
+  margin-bottom: 37px;
+}
+
+.short-description {
+  max-width: 385px;
+  font-size: 16px;
+  font-weight: normal;
+  @include font-ego;
+  line-height: 1.69;
+  letter-spacing: -0.1px;
+  margin-bottom: 87px;
+}
+
+.details-content {
+  background-color: #f7f7f7;
+  padding-top: 43px;
+  padding-bottom: 50px;
+  width: 100%;
+
+  div {
+    margin-top: 0;
+  }
+}
+
+/* div {
+  &&:focus {
+    outline: none;
+  }
+} */
+
+.pagination-item {
+  width: 8px;
+  height: 8px;
+  opacity: 0.5;
+  background-color: #c5c5c5;
+  opacity: 0.5;
+  border-radius: 4px;
+  margin-left: 25px;
+  transition: all ease-out 0.4s;
+}
+
+.pagination-item.active {
+  width: 39px;
+  background-color: #4a4a4a;
+}
+
+.card-title {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+  color: #373737;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+
+.card-carousel {
+  padding: 0px;
+  width: 270px;
+  margin-left: 11px;
+  margin-right: 11px;
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+}
+
+.arrow-container {
+  width: 45px;
+  height: 146px;
+  background-color: rgba(255, 255, 255, 0.56);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.arrow-image {
+  position: inline-block;
+  top: 50%;
+  margin-left: auto;
+  width: 12px;
+  height: 21px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: auto;
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+}
+
+.details-container {
+  max-width: 385px;
+  margin: auto;
+}
+
+@mixin font-ego {
+  font-family: "Montserrat";
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+}
+
+.title {
+  @include font-ego;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+  margin-bottom: 13px;
+}
+
+.description {
+  @include font-ego;
+  font-size: 16px;
+  line-height: 1.69;
+  letter-spacing: -0.1px;
+  margin-bottom: 0;
+}
+.first {
+  display: flex;
+  align-items: center;
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.second {
+  display: flex;
+  align-items: center;
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
