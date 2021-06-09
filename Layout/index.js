@@ -19,6 +19,8 @@ export default function Layout({ children, currentView }) {
     });
   };
 
+  console.log("hola");
+
   return (
     <Container>
       <Header>
