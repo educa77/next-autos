@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled, { css } from "styled-components";
-import Models from "../components/Models";
-import Filters from "../components/Filters";
+import Models from "../components/models";
+import Filters from "../components/filters";
 
 export default function Home() {
   return (
@@ -110,7 +110,6 @@ const PageContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
 `;
 
 Home.renderData = {
