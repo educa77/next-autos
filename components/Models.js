@@ -58,14 +58,14 @@ function Models() {
                     value={item.price}
                   />
                 </CardYearPrice>
-                <a href={"/model/" + item.id}>
+                <a href={`model/${parseInt(item.id)}`}>
                   <CardImage
                     src={item.photo}
                     width="100%"
                     alt={"Imagen de: " + item.name}
                   />
                 </a>
-                <CardBtn href={`model/${item.id}`}>
+                <CardBtn href={`model/${parseInt(item.id)}`}>
                   <CardImgBtn
                     src="/images/negro-fill.svg"
                     width="100%"
