@@ -272,4 +272,5 @@ const Link = styled.a`
 `;
 const Logo = styled.div`
   margin: 17px 25px 0px 30px;
+  cursor: pointer;
 `;
