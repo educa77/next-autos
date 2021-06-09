@@ -1,4 +1,0 @@
-{
-  "presets": ["next"],
-  "plugins": [["styled-components", { "ssr": true }]]
-}
