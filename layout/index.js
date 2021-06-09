@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../styles/Theme";
 import Image from "next/image";
 import Router from "next/router";
-import s from "../Styles/navbar-ego.module.scss";
+import s from "../styles/navbar-ego.module.scss";
 
 import React, { useState } from "react";
 

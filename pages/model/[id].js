@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllModels, getOneModel } from "../../redux/actions";
 import styled, { css } from "styled-components";
-import Carousel from "../../components/Carousel";
-import MoreDetails from "../../components/MoreDetails";
+import Carousel from "../../components/carousel";
+import MoreDetails from "../../components/moreDetails";
 
 function ModelDetail() {
   const router = useRouter();
