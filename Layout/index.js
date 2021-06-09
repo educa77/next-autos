@@ -23,7 +23,7 @@ export default function Layout({ children, currentView }) {
     <Container>
       <Header>
         <NavigationMenu>
-          <div className="logo">
+          <Logo>
             <Image
               src="/images/logo.png"
               alt="Picture of the Agency"
@@ -31,13 +31,14 @@ export default function Layout({ children, currentView }) {
               width={40}
               onClick={() => Router.push("/")}
             />
-          </div>
+          </Logo>
           <NavHeader>
             <li>
               <Link
                 active={currentView === "Modelos"}
                 className={s["active"]}
                 onClick={() => Router.push("/")}
+                key={1}
               >
                 Modelos
               </Link>
@@ -47,6 +48,7 @@ export default function Layout({ children, currentView }) {
                 active={currentView === "More"}
                 className={s["active"]}
                 onClick={() => Router.push("/model/")}
+                key={2}
               >
                 Ficha de Modelos
               </Link>
@@ -77,7 +79,7 @@ function Menu({ show, handleToggle }) {
   return (
     <div className={s["menu"] + (show ? " " + s["show"] : "")}>
       <ul>
-        <li>
+        <li key={1}>
           <a href="/" onClick={handleToggle} className={s["btn-menu-close"]}>
             Cerrar
             <img src="/images/fill-1.png" alt="Close menu" />
@@ -86,23 +88,23 @@ function Menu({ show, handleToggle }) {
       </ul>
       <div className={s["menu-tab"]}>
         <ul>
-          <li>
+          <li key={1}>
             <a href="/">Modelos</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="/">Servicios y Accesorios</a>
           </li>
-          <li>
+          <li key={3}>
             <a href="/">Financiación</a>
           </li>
-          <li>
+          <li key={4}>
             <a href="/">Reviews y Comunidad</a>
           </li>
         </ul>
       </div>
 
       <ul>
-        <li>
+        <li key={1}>
           <a href="/">
             <hr />
           </a>
@@ -111,20 +113,20 @@ function Menu({ show, handleToggle }) {
 
       <div className={s["menu-tab"]}>
         <ul>
-          <li>
+          <li key={1}>
             <a href="/">Toyota Mobility Service</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="/">Toyota Gazoo Racing</a>
           </li>
-          <li>
+          <li key={3}>
             <a href="/">Toyota Híbridos</a>
           </li>
         </ul>
       </div>
 
       <ul>
-        <li>
+        <li key={1}>
           <a href="/">
             <hr />
           </a>
@@ -133,13 +135,13 @@ function Menu({ show, handleToggle }) {
 
       <div className={s["menu-tab"]}>
         <ul>
-          <li>
+          <li key={1}>
             <a href="/">Concesionarios</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="/">Test Drive</a>
           </li>
-          <li>
+          <li key={3}>
             <a href="/">Contacto</a>
           </li>
         </ul>
@@ -147,22 +149,22 @@ function Menu({ show, handleToggle }) {
 
       <div className={s["menu-tab"] + " " + s["menu-tab-dark"]}>
         <ul>
-          <li>
+          <li key={1}>
             <a href="/">Actividades</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="/">Servicios al Cliente</a>
           </li>
-          <li>
+          <li key={3}>
             <a href="/">Ventas Especiales</a>
           </li>
-          <li>
+          <li key={4}>
             <a href="/">Innovación</a>
           </li>
-          <li>
+          <li key={5}>
             <a href="/">Prensa</a>
           </li>
-          <li>
+          <li key={6}>
             <a href="/">Acerca de...</a>
           </li>
         </ul>
@@ -218,9 +220,6 @@ const NavigationMenu = styled.div`
   display: flex;
   flex: 0.9;
   height: 100%;
-  .logo {
-    margin: 17px 25px 0px 30px;
-  }
 `;
 
 const NavHeader = styled.div`
@@ -271,6 +270,6 @@ const Link = styled.a`
       font-weight: 600;
     `}
 `;
-const Logo = styled.a`
-  display: inline-block;
+const Logo = styled.div`
+  margin: 17px 25px 0px 30px;
 `;

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllModels, getOrder } from "../redux/actions";
 import CurrencyFormat from "react-currency-format";
 import styled from "styled-components";
-import s from "../styles/card.module.scss";
 
 function Models() {
   const dispatch = useDispatch();
@@ -39,15 +38,17 @@ function Models() {
     dispatch(getAllModels());
   }, [getOrder]);
 
+  console.log(models, "models");
+
   return (
     <CardSpace>
       <CardContainer>
         {models &&
           models.map((item) => (
             <Card>
-              <div className={s["card-text-center"]}>
-                <div className={s["card-text"]}>{item.name}</div>
-                <span className={s["card-year-price"]}>
+              <CardTextCenter>
+                <CardText>{item.name}</CardText>
+                <CardYearPrice>
                   {item.year} |{" "}
                   <CurrencyFormat
                     displayType="text"
@@ -55,26 +56,23 @@ function Models() {
                     thousandSeparator={"."}
                     prefix={"$"}
                     value={item.price}
-                    className={s["card-currency"]}
                   />
-                </span>
+                </CardYearPrice>
                 <a href={"/model/" + item.id}>
-                  <img
+                  <CardImage
                     src={item.photo}
                     width="100%"
                     alt={"Imagen de: " + item.name}
-                    className={s["card-image"]}
                   />
                 </a>
-                <a href={"/model/" + item.id} className={s["card-btn"]}>
-                  <img
+                <CardBtn href={`model/${item.id}`}>
+                  <CardImgBtn
                     src="/images/negro-fill.svg"
                     width="100%"
                     alt="btn-ver-modelo"
-                    className={s["card-btn"]}
                   />
-                </a>
-              </div>
+                </CardBtn>
+              </CardTextCenter>
             </Card>
           ))}
       </CardContainer>
@@ -83,6 +81,63 @@ function Models() {
 }
 
 export default Models;
+
+const CardTextCenter = styled.div`
+  width: 268px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CardBtn = styled.a`
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  &&:hover {
+    opacity: 1;
+  }
+`;
+
+const CardImage = styled.img`
+  margin-top: -130px;
+`;
+
+const CardImgBtn = styled.img`
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  &&:hover {
+    opacity: 1;
+  }
+`;
+
+const CardText = styled.div`
+  width: 268px;
+  height: 30px;
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  letter-spacing: -0.65px;
+  text-align: center;
+  color: #000000;
+  transition: all 0.5s ease-in-out;
+`;
+
+const CardYearPrice = styled.span`
+  width: 268px;
+  height: 18px;
+  margin: 8px 1px 128px 0;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  text-align: center;
+  color: #191919;
+`;
 
 const CardSpace = styled.div`
   flex: 1;
@@ -98,6 +153,7 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   grid-auto-rows: auto;
+
   @media (max-width: 1100px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
@@ -115,4 +171,16 @@ const CardContainer = styled.div`
   }
 `;
 
-const Card = styled.div``;
+const Card = styled.div`
+  &:hover {
+    ${CardBtn} {
+      opacity: 1;
+    }
+    ${CardImgBtn} {
+      opacity: 1;
+    }
+    ${CardText} {
+      color: #eb0a1e;
+    }
+  }
+`;
