@@ -173,12 +173,20 @@ function Menu({ show, handleToggle }) {
   );
 }
 
+const FontEgo = css`
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+  font-family: "Montserrat";
+`;
+
 const BotonMenu = styled.div`
   height: 100%;
   display: flex;
   flex: 0.1;
   justify-content: center;
   align-items: center;
+  ${FontEgo}
   a {
     display: flex;
     justify-content: center;
@@ -188,11 +196,9 @@ const BotonMenu = styled.div`
     margin-right: 8px;
     font-size: 14px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #191919;
+    ${FontEgo}
 
     @media (max-width: 900px) {
       display: none;
@@ -215,6 +221,7 @@ const Header = styled.div`
   position: fixed;
   z-index: 10;
   background: white;
+  ${FontEgo}
 `;
 const NavigationMenu = styled.div`
   display: flex;

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllModels, getOrder } from "../redux/actions";
 import CurrencyFormat from "react-currency-format";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function Models() {
   const dispatch = useDispatch();
@@ -82,6 +82,13 @@ function Models() {
 
 export default Models;
 
+const FontEgo = css`
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+  font-family: "Montserrat";
+`;
+
 const CardTextCenter = styled.div`
   width: 268px;
   display: flex;
@@ -116,13 +123,11 @@ const CardText = styled.div`
   margin: 0 0 8px;
   font-size: 28px;
   font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.07;
   letter-spacing: -0.65px;
   text-align: center;
-  color: #000000;
   transition: all 0.5s ease-in-out;
+  ${FontEgo}
 `;
 
 const CardYearPrice = styled.span`
@@ -131,12 +136,10 @@ const CardYearPrice = styled.span`
   margin: 8px 1px 128px 0;
   font-size: 14px;
   font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: normal;
   letter-spacing: -0.28px;
   text-align: center;
-  color: #191919;
+  ${FontEgo}
 `;
 
 const CardSpace = styled.div`

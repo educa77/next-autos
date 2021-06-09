@@ -254,6 +254,13 @@ const CustomToggleFilter = React.forwardRef(({ children, onClick }, ref) => (
 
 export default Filters;
 
+const FontEgo = css`
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+  font-family: "Montserrat";
+`;
+
 const FilterNav = styled.div`
   width: 100%;
   display: flex;
@@ -261,6 +268,7 @@ const FilterNav = styled.div`
   height: 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 28px;
+  ${FontEgo}
 `;
 
 const FilterBy = styled.div`
@@ -268,10 +276,7 @@ const FilterBy = styled.div`
 `;
 
 const Link = styled.a`
-  color: #373737;
   font-size: 14px;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1;
   margin-right: 15px;
   font-weight: normal;
@@ -279,6 +284,7 @@ const Link = styled.a`
   box-sizing: border-box;
   padding: 10px 20px;
   border-radius: 18px;
+  ${FontEgo}
   &:hover,
   &:focus {
     color: #373737;
@@ -300,7 +306,6 @@ const DeskTopFilter = styled.div`
   text-align: left;
   margin-right: auto;
   width: 100%;
-
   @media (max-width: 1000px) {
     display: none;
   }
@@ -310,7 +315,7 @@ const FilterOrder = styled.div`
   position: absolute;
   background: white;
   right: 5%;
-
+  ${FontEgo}
   span {
     font-weight: 700;
   }

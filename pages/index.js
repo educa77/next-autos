@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Models from "../components/Models";
 import Filters from "../components/Filters";
 
@@ -79,8 +79,17 @@ export default function Home() {
     </div>
   );
 }
+
+const FontEgo = css`
+  font-stretch: normal;
+  font-style: normal;
+  color: #373737;
+  font-family: "Montserrat";
+`;
+
 const PageContainer = styled.div`
   display: flex;
+  ${FontEgo}
   h1 {
     margin-top: 100px;
     margin-left: 0px;
