@@ -258,10 +258,7 @@ const PaginationItem = styled.div`
   border-radius: 4px;
   margin-left: 25px;
   transition: all ease-out 0.4s;
-  &:active {
-    width: 39px;
-    background-color: #4a4a4a;
-  }
+  ${(props) => (props.active ? `background-color: #4a4a4a; width: 38px` : "")}
 `;
 
 const ArrowContainer = styled.div`
