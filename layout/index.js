@@ -1,10 +1,9 @@
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { colors } from "../styles/Theme";
 import Image from "next/image";
 import Router from "next/router";
-import s from "../styles/navbar-ego.module.scss";
-
-import React, { useState } from "react";
+import Menu from "../components/menu";
 
 export default function Layout({ children, currentView }) {
   const [state, setState] = useState({
@@ -18,8 +17,6 @@ export default function Layout({ children, currentView }) {
       menuToggled: !state.menuToggled,
     });
   };
-
-  console.log("hola");
 
   return (
     <Container>
@@ -35,20 +32,18 @@ export default function Layout({ children, currentView }) {
             />
           </Logo>
           <NavHeader>
-            <li>
+            <li key={1}>
               <Link
                 active={currentView === "Modelos"}
-                className={s["active"]}
                 onClick={() => Router.push("/")}
                 key={1}
               >
                 Modelos
               </Link>
             </li>
-            <li>
+            <li key={2}>
               <Link
                 active={currentView === "More"}
-                className={s["active"]}
                 onClick={() => Router.push("/model/")}
                 key={2}
               >
@@ -74,104 +69,6 @@ export default function Layout({ children, currentView }) {
         </Footer>
       </Content>
     </Container>
-  );
-}
-
-function Menu({ show, handleToggle }) {
-  return (
-    <div className={s["menu"] + (show ? " " + s["show"] : "")}>
-      <ul>
-        <li key={1}>
-          <a href="/" onClick={handleToggle} className={s["btn-menu-close"]}>
-            Cerrar
-            <img src="/images/fill-1.png" alt="Close menu" />
-          </a>
-        </li>
-      </ul>
-      <div className={s["menu-tab"]}>
-        <ul>
-          <li key={1}>
-            <a href="/">Modelos</a>
-          </li>
-          <li key={2}>
-            <a href="/">Servicios y Accesorios</a>
-          </li>
-          <li key={3}>
-            <a href="/">Financiación</a>
-          </li>
-          <li key={4}>
-            <a href="/">Reviews y Comunidad</a>
-          </li>
-        </ul>
-      </div>
-
-      <ul>
-        <li key={1}>
-          <a href="/">
-            <hr />
-          </a>
-        </li>
-      </ul>
-
-      <div className={s["menu-tab"]}>
-        <ul>
-          <li key={1}>
-            <a href="/">Toyota Mobility Service</a>
-          </li>
-          <li key={2}>
-            <a href="/">Toyota Gazoo Racing</a>
-          </li>
-          <li key={3}>
-            <a href="/">Toyota Híbridos</a>
-          </li>
-        </ul>
-      </div>
-
-      <ul>
-        <li key={1}>
-          <a href="/">
-            <hr />
-          </a>
-        </li>
-      </ul>
-
-      <div className={s["menu-tab"]}>
-        <ul>
-          <li key={1}>
-            <a href="/">Concesionarios</a>
-          </li>
-          <li key={2}>
-            <a href="/">Test Drive</a>
-          </li>
-          <li key={3}>
-            <a href="/">Contacto</a>
-          </li>
-        </ul>
-      </div>
-
-      <div className={s["menu-tab"] + " " + s["menu-tab-dark"]}>
-        <ul>
-          <li key={1}>
-            <a href="/">Actividades</a>
-          </li>
-          <li key={2}>
-            <a href="/">Servicios al Cliente</a>
-          </li>
-          <li key={3}>
-            <a href="/">Ventas Especiales</a>
-          </li>
-          <li key={4}>
-            <a href="/">Innovación</a>
-          </li>
-          <li key={5}>
-            <a href="/">Prensa</a>
-          </li>
-          <li key={6}>
-            <a href="/">Acerca de...</a>
-          </li>
-        </ul>
-      </div>
-    </div>
   );
 }
 
